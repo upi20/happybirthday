@@ -1,1 +1,127 @@
-<h1>Selamat Ulang tahun<h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitung Mundur</title>
+  <style>
+    td{ text-align: left; }
+    body{ font-family: sans-serif; color: #fff; background: linear-gradient( 225deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% ); background-repeat: no-repeat; background-Attachment: fixed; align-items: center; }
+    .bio{ border: solid 1px #fff; height: 200px; width: 280px; padding: 10px; float: left; margin: 10px; }
+    a{ text-decoration: none; color: #ffffff; }
+    #time{ text-align: left; font-size: 40px; margin: 10px; max-width: 250px; }
+    #nama:hover, a:hover{ color: rgba(125,31,165,1); background: #fff; }
+    table{ margin: 10px; padding: 0px; margin: auto; }
+  </style>
+</head>
+<body onload="mainFunRun();" id="mainBody">
+    <table>
+      <tbody id="time">
+      </tbody>
+    </table>
+</body>
+<script>
+  // Set tanggal dan waktu tujuan, Tahun otomatis menyesuaikan
+  var tgl = 10; // Tanggal
+  var bln = 8; // Bulan
+  var jam = 0; // Jam
+  var men = 0; // Menit
+  var det = 0; // Detik
+  var lim = 24; // limit/batas waktu untuk menampilkan ucapan("Dalam Satuan jam")
+  var thL = 2001; // Tahun lahir lengkap contoh 2000
+  var nam = "Vakrun Nisah"; // Nama untuk ucapan yang akan ditampilkan
+  var nm2 = "Isep Lutpi Nur"; // Nama untuk yang memberikan ucapan
+  // putar warna latar belakang isi dengan boolean false untuk mati dan true untuk menyalakan
+  var putarBG = true;
+  // variable untuk mengatur kecepatan putaran latar belakang ("Dalam satuan detik")
+  var kecepBG = 2; // detik
+  // ucapan yang akan ditampilkan
+  var quote = "Semoga di umur barunya bisa lebih dewasa dan bijaksana dalam menyikapi segala hal dan situasi, Semoga lebih semangat belajarnya, Lulus tepat waktu dan bisa jadi kebanggaan orang tua, masyarakat, bangsa dan negara.";
+</script>
+</html>
+<script>
+  // variable untuk sistem
+  var x;
+  var y = 0;
+  var timeDefault = new Date();
+
+  // fungsi utama
+  function mainFunRun(){
+    x = setInterval(function(){
+      var timeNow = new Date().getTime();
+      var timeGo = new Date(timeGoFunction()).getTime();
+      var result = timeGo - timeNow;
+      var tahun = hideZero(nol(Math.floor( result / (1000 * 60 * 60 * 24 * 30 * 12))), "Tahun");
+      var bulan = hideZero(nol(Math.floor((result % (1000 * 60 * 60 * 24 * 30 * 12)) / (1000 * 60 * 60 * 24 * 30))), "Bulan");
+      var hari  = hideZero(nol(Math.floor((result % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24))), "Hari");
+      var jam   = hideZero(nol(Math.floor((result % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))), "Jam");
+      var menit = hideZero(nol(Math.floor((result % (1000 * 60 * 60)) / (1000 * 60))), "Menit");
+      var detik = hideZero(nol(Math.floor((result % (1000 * 60)) / 1000)), "Detik");
+      if (result > 0) idHtml("time", tahun + bulan + hari + jam + menit + detik);
+      else {
+        idHtml("time", "<center>" + "Selamat Ulang Tahun yang ke " + (timeDefault.getFullYear() - thL) + ", " + nam + "!!. "+ quote + "<br><br>" + nm2 +"<center>");
+        clearInterval(x);
+        document.title = "Selamat Ulang Tahun yang ke " + (timeDefault.getFullYear() - thL) + ", " + nam + "!!. ";
+      }
+    }, 1000);
+  }
+
+  function timeGoFunction(){
+    var dateTo = bln + " " + tgl + " ";
+    var timeTo = " " + jam + ":" + men + ":" + det;
+    var satuHari = -(1000 * 60 * 60 * lim);
+    var dateX = timeDefault.getTime();
+    var dateY = new Date(dateTo + timeDefault.getFullYear() + timeTo).getTime();
+    if ((dateY - dateX) > satuHari) return dateTo + timeDefault.getFullYear() + timeTo;
+    else return dateTo + (Number(timeDefault.getFullYear()) + 1) + timeTo;
+  }
+
+  function nol(angka = false){
+    if (angka != false) {
+      if (angka < 10) return "0" + angka;
+      else return angka;
+    } else return "00";
+  }
+
+  function hideZero(n, t){
+    if (n == 0)return "";
+    else return "<tr><td>" + n + "  :</td><td>" + t + "</td></tr>";
+  }
+
+  // query function
+  function idHtml(id = false, val = false){
+    if (id != false &&  val != false) {
+      getById(id).innerHTML = val;
+    } else return id;
+  }
+
+  function getById(id = false){
+    if (id != false) {
+      return document.getElementById(id);
+    } else return id;
+  }
+
+  // background rotation function
+  function bgcolorFunLG(x){
+    getById("mainBody").style.background = "linear-gradient( " + x + " )";
+    getById("mainBody").style.backgroundAttachment = "fixed";
+    getById("mainBody").style.backgroundRepeat = "no-repeat";
+  }
+
+  // kode untuk memutar background
+  var bgcolorno = 0;
+  var bgcolor;
+  if (putarBG) {
+    bgcolor = setInterval(function(){
+      if (bgcolorno < 8) bgcolorno++;
+      else bgcolorno = 1;
+      if(bgcolorno == 1) bgcolorFunLG("0deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+      else if(bgcolorno == 2) bgcolorFunLG("45deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+      else if(bgcolorno == 3) bgcolorFunLG("90deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+      else if(bgcolorno == 4) bgcolorFunLG("135deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+      else if(bgcolorno == 5) bgcolorFunLG("180deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+      else if(bgcolorno == 6) bgcolorFunLG("225deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+      else if(bgcolorno == 7) bgcolorFunLG("270deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+      else if(bgcolorno == 8) bgcolorFunLG("315deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%");
+    },100 * kecepBG);
+  }
+</script>
