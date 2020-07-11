@@ -2,7 +2,7 @@
 Halaman ini bisa di kostum sesuka hati untuk ucapan ulang tahun kepada siapapun
 lihat: https://iseplutpinur.github.io/happybirthday/
 
-# Set tanggal dan waktu tujuan, Tahun otomatis menyesuaikan
+### Set tanggal dan waktu tujuan, Tahun otomatis menyesuaikan
 1. Tanggal
   > var tgl = 12;
 
@@ -37,10 +37,4 @@ lihat: https://iseplutpinur.github.io/happybirthday/
   > var kecepBG = 2;
 
 12. ucapan yang akan ditampilkan
-  > var ucapan = "Text ucapan yang ingin anda ungkapkan";
-
-
-
-
-
-
+  > var ucapan = "Semoga di umur barunya bisa lebih dewasa dan bijaksana dalam menyikapi segala hal dan situasi, Semoga lebih semangat belajarnya, Lulus tepat waktu dan bisa jadi kebanggaan orang tua, masyarakat, bangsa dan negara.";
