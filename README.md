@@ -45,6 +45,6 @@ lihat: https://iseplutpinur.github.io/happybirthday/
 <img src="Main.png" alt="Halaman Utama">
 
 - Ketika waktu yang tentukan sudah dicapai
-<img src="Main1.png" alt="Halaman Utama 2">
+<img src="Main2.png" alt="Halaman Utama 2">
 
 - Setelah limit atau batas akhir ucapan ditampilkan selesai maka otomatis akan menghitung mundur tanggal dan waktu untuk tahun depannya dan seterusnya.
