@@ -30,11 +30,21 @@ lihat: https://iseplutpinur.github.io/happybirthday/
 9. Nama untuk yang memberikan ucapan
   > var nm2 = "Isep Lutpi Nur";
 
-10. putar warna latar belakang isi dengan boolean false untuk mati dan true untuk menyalakan
-  > var putarBG = false;
+10. putar warna latar belakang isi dengan boolean false untuk mati dan true untuk hidup
+  > var putarBG = true;
 
 11. variable untuk mengatur kecepatan putaran latar belakang ("Dalam satuan detik")
   > var kecepBG = 2;
 
 12. ucapan yang akan ditampilkan
   > var ucapan = "Semoga di umur barunya bisa lebih dewasa dan bijaksana dalam menyikapi segala hal dan situasi, Semoga lebih semangat belajarnya, Lulus tepat waktu dan bisa jadi kebanggaan orang tua, masyarakat, bangsa dan negara.";
+
+
+### Contoh
+- Hitung mundur menuju tanggal yang sudah di tentukan
+<img src="Main.png" alt="Halaman Utama">
+
+- Ketika waktu yang tentukan sudah dicapai
+<img src="Main1.png" alt="Halaman Utama 2">
+
+- Setelah limit atau batas akhir ucapan ditampilkan selesai maka otomatis akan menghitung mundur tanggal dan waktu untuk tahun depannya dan seterusnya.
